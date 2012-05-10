@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>Event Finder</title>
+	<link href="style.css" rel="stylesheet"type="text/css">
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDpAziPmT9crsxdIIAxHVnJMIDbwHzoJy4&sensor=true"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//get application data
+			getDataSets();
+			getAdverts();
+			getEvents();
+		});
+	
+      var map;
+	  function initialize() {
+        var myOptions = {
+          zoom: 15,
+          center: new google.maps.LatLng(50.935813,-1.396337),
+		  disableDefaultUI: true,
+		  zoomControl: true,
+		  mapTypeControl: true,
+		  panControl: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            myOptions);
+			
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(50.9362789,-1.3981275),
+			map: map,
+			title:"Building 2"
+			});
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+	<!--[if lt IE 9]>  
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+	<![endif]-->  
+</head>
+<body>
+	<div class="content top-content">
+		<div class="inner-content">
+			<div class="header">
+				<h1>Event Finder</h1>
+				<!--<div class="nav">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Account</a></li>
+					</ul>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="inner-content">
+			<div class="boxed-content content">
+				<h2>Data Sets</h2>
+				<div class="data-line"><input class="input-text" type="text"><input class="input-button" type="button" value="Add Data Set"></div>
+				<div class="data-line" style="margin-top:15px;"><input class="input-button" type="button" value="Remove Data Set"><label>http://id.southampton.ac.uk/dataset/events-diary/latest</label></div>
+			</div>
+			<div class="boxed-content content" style="clear:both;margin-bottom:0;">
+				<h2>Adverts</h2>
+				<div class="data-line"><input class="input-text" type="text"><input class="input-button" type="button" value="Add Advert"></div>
+				<div class="advert-item"><img src="advert1.jpg"><br><input type="button" value="Remove Advert"></div>
+				<div class="advert-item"><img src="advert2.jpg"><br><input type="button" value="Remove Advert"></div>
+				<div class="advert-item"><img src="advert1.jpg"><br><input type="button" value="Remove Advert"></div>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="position:relative;">
+			<div class="boxed-content map" style="width:60%;">
+				<div id="map_canvas" style="height:300px;">MAP</div>
+			</div>
+			<div class="boxed-content events" style="width:38%;">
+				<div id="events">
+					<div class="event">
+						<div class="data-line">Accounting and Finance - Building 2</div>
+						<div class="data-line">Fri 02 Sep 09:00</div>
+					</div>
+					<div class="event">
+						<div class="data-line">Accounting and Finance - Building 2</div>
+						<div class="data-line">Sat 03 Sep 09:00</div>
+					</div>
+					<div class="event">
+						<div class="data-line">Entrepreneurship - Building 2</div>
+						<div class="data-line">Fri 02 Sep 09:00</div>
+					</div>
+					<div class="event">
+						<div class="data-line">Entrepreneurship - Building 2</div>
+						<div class="data-line">Fri 02 Sep 11:00</div>
+					</div>
+					<div class="event">
+						<div class="data-line">Entrepreneurship - Building 2</div>
+						<div class="data-line">Fri 02 Sep 13:00</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
